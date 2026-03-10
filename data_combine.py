@@ -60,11 +60,6 @@ def extract_all_nba_label(awards_value):
 
 
 def keep_one_season_row(df):
-    """
-    Keep exactly one row per player:
-    - if a total row like 2TM/3TM exists, keep that
-    - otherwise keep the first row
-    """
     df = df.copy()
 
     if "Player-additional" in df.columns:
@@ -138,11 +133,6 @@ def process_one_year(year):
 
     combined_df.to_csv(output_path, index=False)
 
-    print("Regular table shape:", regular_df.shape)
-    print("Advanced table shape:", advanced_df.shape)
-    print("Regular clean shape:", regular_clean.shape)
-    print("Advanced clean shape:", advanced_clean.shape)
-    print("Combined shape:", combined_df.shape)
     print(f"Saved combined file to: {output_path}")
 
     return combined_df
